@@ -1,0 +1,94 @@
+----------------------------- Backend: -----------------------------
+
+Install Golang
+===============
+cmd > go version
+go version go1.27.3 windows/amd64
+
+
+IDE: Visual Studio v1.144.1
+============================
+ > Extensions:
+ Identifier golang.go
+ Version 0.58.0
+ Published 11 years ago
+ Last Released 2 weeks ago
+ 
+cmd:
+
+go mod init employee-management 
+go clean -cache
+go build .
+go run .
+
+
+go get github.com/jackc/pgx/v5/pgxpool
+// pgxpool is a PostgreSQL connection pool for Golang. 
+// It manages multiple database connections so your application can efficiently communicate with PostgreSQL.
+// With pgxpool:
+// Connections are created and reused.
+// Multiple API requests can access the database concurrently.
+// Maximum connections can be controlled.
+// Idle connections can be maintained for future requests.
+// go.mod generated
+
+
+go get github.com/joho/godotenv
+
+
+
+Postman:
+===========
+HTTP method	|  Endpoint	            |   Purpose
+GET       	|  /api/employees	    | List all employees
+POST	    |  /api/employees	    | Add an employee
+DELETE	    |  /api/employees/{id}	| Delete employee with ID 1
+
+
+PostgreSQL
+=============
+DDL & DML
+
+File: employee-management/backend/.env
+DATABASE_URL=postgres://root:password@localhost:5432/customer?sslmode=disable
+
+File: employee-management/backend/queries.go
+
+-----------------------------  Frontend: -----------------------------
+
+React + TypeScript 
+==============================
+1. Download & install nodejs
+https://nodejs.org/en/download
+
+2. Environments variable
+System variable > Path >
+add C:\Program Files\nodejs\
+
+3. cmd > npm -v
+         11.20.0
+
+4. use Vite to create the React application.
+
+cmd>  npm create vite@latest frontend -- --template react-ts
+
+Note: 
+ESLint for your React + Vite project.
+
+Done installed:
+VITE v8.3.6 ready in 935 ms
+
+➜ Local: http://localhost:5173/
+
+cmd>  cd frontend
+cmd>  npm install
+
+5. Edit files: App.css & App.tsx
+
+6. Start both frontend and backend to test
+
+Terminal 1 — Go backend folder (API: http://localhost:8080)
+> go run .
+ 
+Terminal 2 — Go frontend folder.
+> npm run dev
